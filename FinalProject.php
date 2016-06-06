@@ -296,7 +296,7 @@ if($mysqli->connect_errno){
 	<form method="POST" action="FinalProject.html"> <!-- Change the action later-->
 		<fieldset>
 			<legend>Injuries_Recovery</legend>
-			<p>Injury ID: </p>
+			Injury ID: 
 			<select name= injuryRecoveryDropDown>
 				<!-- php to give options for Structure_id and enforce foreign key constraints -->
 				<?php
@@ -316,7 +316,7 @@ if($mysqli->connect_errno){
 				$stmt->close();
 				?>
 			</select><br>
-			<p>Recovery ID: </p>
+			Recovery ID: 
 			<select name= patientDropDown>
 				<!-- php to give options for patient_id and enforce foreign key constraints -->
 				<?php
