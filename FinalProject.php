@@ -27,14 +27,9 @@ if($mysqli->connect_errno){
 			<th>Patients</th>
 		</tr>
 		<tr>
-			<td>ID</td>
-			<td>First name</td>
-			<td>Last name</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>Ima</td>
-			<td>Hurt</td>
+			<td>id</td>
+			<td>Fname</td>
+			<td>Lname</td>
 		</tr>
 	</table>
 
@@ -44,16 +39,55 @@ if($mysqli->connect_errno){
 			<th>Injuries</th>
 		</tr>
 		<tr>
-			<td>ID</td>
-			<td>Structure</td>
+			<td>id</td>
+			<td>Structure_id</td>
+			<td>Patient_id</td>
 			<td>Type</td>
 			<td>Date</td>
 		</tr>
+	</table>
+
+<!-- Structures table -->	
+	<table>
+		 <tr>
+			<th>Structures</th>
+		</tr>
 		<tr>
-			<td>1</td>
-			<td>femur</td>
-			<td>fracture</td>
-			<td>2010-02-12</td>
+			<td>id</td>
+			<td>Structure</td>
+		</tr>
+	</table>
+	
+<!-- Recovery table -->	
+	<table>
+		 <tr>
+			<th>Recovery</th>
+		</tr>
+		<tr>
+			<td>id</td>
+			<td>Recovery</td>
+		</tr>
+	</table>
+
+<!-- Injuries_Recovery table -->	
+	<table>
+		 <tr>
+			<th>Injuries_Recovery</th>
+		</tr>
+		<tr>
+			<td>Injury_id</td>
+			<td>Recovery_id</td>
+		</tr>
+	</table>
+
+<!-- Injuries_ConnectedStructure table -->	
+	<table>
+		 <tr>
+			<th>Injuries_ConnectedStructure</th>
+		</tr>
+		<tr>
+			<td>Injury_id</td>
+			<td>Connected_Structure_id</td>
 		</tr>
 	</table>
 	</div>
