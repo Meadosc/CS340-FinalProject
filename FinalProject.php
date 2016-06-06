@@ -245,28 +245,27 @@ if($mysqli->connect_errno){
 		<fieldset>
 			<legend>Injuries</legend>
 			<p>Structure: <input type="text" name="structure"/></p>
-			<p>Type of Injury: <input type="text" name="injType"/></p>
+			<p>Type of Injury: <input type="text" name="Type"/></p>
 			<p>Date: <input type="text" name="date"/></p>
-			<p>Connected to: <input type="text" name="injType"/></p> <!-- May change this later-->
-			
-			<!-- php to give options for patient_id and enforce foeriegn key constraints -->
-			<?php
-			if(!($stmt = $mysqli->prepare("SELECT id, Fname FROM Patients"))){
-				echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
-			}
-			
-			if(!$stmt->execute()){
-				echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-			}
-			if(!$stmt->bind_result($id, $Fname)){
-				echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-			}
-			while($stmt->fetch()){
-				echo '<option value=" '. $id . ' "> ' . $Fname . '</option>\n';
-			}
-			$stmt->close();
-			?>
-			
+			<select name= patientDropDown>
+				<!-- php to give options for patient_id and enforce foeriegn key constraints -->
+				<?php
+				if(!($stmt = $mysqli->prepare("SELECT id, Fname FROM Patients"))){
+					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+				}
+				
+				if(!$stmt->execute()){
+					echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+				}
+				if(!$stmt->bind_result($id, $Fname)){
+					echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+				}
+				while($stmt->fetch()){
+					echo '<option value=" '. $id . ' "> ' . $Fname . '</option>\n';
+				}
+				$stmt->close();
+				?>
+			</select>
 			<p><input type="submit" /></p>
 		</fieldset>
 	</form>
