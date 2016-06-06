@@ -31,22 +31,23 @@ if($mysqli->connect_errno){
 			<td>Fname</td>
 			<td>Lname</td>
 		</tr>
-<?php
-if(!($stmt = $mysqli->prepare("SELECT id, Fname, Lname FROM Patients "))){
-	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
-}
-
-if(!$stmt->execute()){
-	echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-}
-if(!$stmt->bind_result($id, $Fname, $Lname)){
-	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-}
-while($stmt->fetch()){
- echo "<tr>\n<td>\n" . $id . "\n</td>\n<td>\n" . $Fname . "\n</td>\n<td>\n" . $Lname . "\n</td>\n</tr>";
-}
-$stmt->close();
-?>
+	<!-- This php puts the patients data in the patients table -->
+	<?php
+	if(!($stmt = $mysqli->prepare("SELECT id, Fname, Lname FROM Patients;"))){
+		echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+	}
+	
+	if(!$stmt->execute()){
+		echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+	}
+	if(!$stmt->bind_result($id, $Fname, $Lname)){
+		echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+	}
+	while($stmt->fetch()){
+	 echo "<tr>\n<td>\n" . $id . "\n</td>\n<td>\n" . $Fname . "\n</td>\n<td>\n" . $Lname . "\n</td>\n</tr>";
+	}
+	$stmt->close();
+	?>
 	</table>
 
 <!-- injuries table -->	
@@ -61,6 +62,23 @@ $stmt->close();
 			<td>Type</td>
 			<td>Date</td>
 		</tr>
+	<!-- This php puts the injuries data in the table -->
+	<?php
+	if(!($stmt = $mysqli->prepare("SELECT id, Structure_id, Patient_id, Type, Date  FROM Injuries;"))){
+		echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+	}
+	
+	if(!$stmt->execute()){
+		echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+	}
+	if(!$stmt->bind_result($id, $Structure_id, $Patient_id, $Type, $Date)){
+		echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+	}
+	while($stmt->fetch()){
+	 echo "<tr>\n<td>\n" . $id . "\n</td>\n<td>\n" . $Structure_id . "\n</td>\n<td>\n" . $Patient_id . "\n</td>\n<td>\n" . $Type . "\n</td>\n<td>\n" . $Date . "\n</td>\n</tr>";
+	}
+	$stmt->close();
+	?>
 	</table>
 
 <!-- Structures table -->	
