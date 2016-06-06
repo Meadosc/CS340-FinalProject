@@ -297,21 +297,21 @@ if($mysqli->connect_errno){
 		<fieldset>
 			<legend>Injuries_Recovery</legend>
 			Injury ID: 
-			<select name= injuryDropDown>
-				<!-- php to give options for injury_id and enforce foreign key constraints -->
+			<select name= injuryConnectedStructuresDropDown>
+				<!-- php to give options for Structure_id and enforce foreign key constraints -->
 				<?php
-				if(!($stmt = $mysqli->prepare("SELECT id, Type FROM Injuries"))){
+				if(!($stmt = $mysqli->prepare("SELECT id FROM Injuries"))){
 					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 				}
 				
 				if(!$stmt->execute()){
 					echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 				}
-				if(!$stmt->bind_result($id, $Type)){
+				if(!$stmt->bind_result($id)){
 					echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 				}
 				while($stmt->fetch()){
-					echo '<option value=" '. $id . ' "> ' . $Type . '</option>\n';
+					echo '<option value=" '. $id . ' "> ' . $id . '</option>\n';
 				}
 				$stmt->close();
 				?>
