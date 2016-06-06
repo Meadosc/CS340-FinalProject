@@ -90,6 +90,23 @@ if($mysqli->connect_errno){
 			<td>id</td>
 			<td>Structure</td>
 		</tr>
+	<!-- This php puts the Structures data in the table -->
+	<?php
+	if(!($stmt = $mysqli->prepare("SELECT id, Structure FROM Structures;"))){
+		echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+	}
+	
+	if(!$stmt->execute()){
+		echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+	}
+	if(!$stmt->bind_result($id, $Structure)){
+		echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+	}
+	while($stmt->fetch()){
+	 echo "<tr>\n<td>\n" . $id . "\n</td>\n<td>\n" . $Structure . "\n</td>\n</tr>";
+	}
+	$stmt->close();
+	?>
 	</table>
 	
 <!-- Recovery table -->	
