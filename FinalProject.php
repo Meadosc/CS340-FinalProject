@@ -204,7 +204,7 @@ if($mysqli->connect_errno){
 	
 <!-- Form for Patients -->	
 	<div>
-	<form method="POST" action="addPatient.php"> <!-- Change the action later-->
+	<form method="POST" action="addPatient.php">
 		<fieldset>
 			<legend>Patient</legend>
 			<p>First Name: <input type="text" name="Fname"/></p>
@@ -217,10 +217,22 @@ if($mysqli->connect_errno){
 
 <!-- Form for Structures -->	
 	<div>
-	<form method="POST" action="addStructure.php"> <!-- Change the action later-->
+	<form method="POST" action="addStructure.php">
 		<fieldset>
 			<legend>Structure</legend>
 			<p>Structure: <input type="text" name="Structure"/></p>
+			<p><input type="submit" /></p>
+		</fieldset>
+	</form>
+	</div>
+	<br>
+	
+<!-- Form for Recovery -->	
+	<div>
+	<form method="POST" action="addRecovery.php">
+		<fieldset>
+			<legend>Recovery</legend>
+			<p>Recovery: <input type="text" name="Recovery"/></p>
 			<p><input type="submit" /></p>
 		</fieldset>
 	</form>
