@@ -146,6 +146,23 @@ if($mysqli->connect_errno){
 			<td>Injury_id</td>
 			<td>Recovery_id</td>
 		</tr>
+	<!-- This php puts the Injuries_Recovery data in the table -->
+	<?php
+	if(!($stmt = $mysqli->prepare("SELECT Injury_id, Recovery_id FROM Injuries_Recovery;"))){
+		echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+	}
+	
+	if(!$stmt->execute()){
+		echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+	}
+	if(!$stmt->bind_result($Injury_id, $Recovery_id)){
+		echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+	}
+	while($stmt->fetch()){
+	 echo "<tr>\n<td>\n" . $Injury_id . "\n</td>\n<td>\n" . $Recovery_id . "\n</td>\n</tr>";
+	}
+	$stmt->close();
+	?>
 	</table>
 
 <!-- Injuries_ConnectedStructure table -->	
