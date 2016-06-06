@@ -204,11 +204,11 @@ if($mysqli->connect_errno){
 	
 <!-- Form for Patients -->	
 	<div>
-	<form method="POST" action="FinalProject.html"> <!-- Change the action later-->
+	<form method="POST" action="addPatient.php"> <!-- Change the action later-->
 		<fieldset>
 			<legend>Patient</legend>
-			<p>First Name: <input type="text" name="firstName"/></p>
-			<p>Last Name: <input type="text" name="lastName"/></p>
+			<p>First Name: <input type="text" name="Fname"/></p>
+			<p>Last Name: <input type="text" name="Lname"/></p>
 			<p><input type="submit" /></p>
 		</fieldset>
 	</form>
