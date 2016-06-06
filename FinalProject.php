@@ -300,23 +300,23 @@ if($mysqli->connect_errno){
 			<select name= injuryDropDown>
 				<!-- php to give options for injury_id and enforce foreign key constraints -->
 				<?php
-				if(!($stmt = $mysqli->prepare("SELECT id FROM Injuries"))){
+				if(!($stmt = $mysqli->prepare("SELECT id, Type FROM Injuries"))){
 					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 				}
 				
 				if(!$stmt->execute()){
 					echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 				}
-				if(!$stmt->bind_result($id)){
+				if(!$stmt->bind_result($id, $Type)){
 					echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 				}
 				while($stmt->fetch()){
-					echo '<option value=" '. $id . ' "> ' . $id . '</option>\n';
+					echo '<option value=" '. $id . ' "> ' . $Type . '</option>\n';
 				}
 				$stmt->close();
 				?>
 			</select><br>
-			Recovery ID:
+			Recovery:
 			<select name= recoveryDropDown>
 				<!-- php to give options for patient_id and enforce foreign key constraints -->
 				<?php
