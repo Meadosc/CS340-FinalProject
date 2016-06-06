@@ -316,26 +316,6 @@ if($mysqli->connect_errno){
 				$stmt->close();
 				?>
 			</select><br>
-			Recovery ID: 
-			<select name= recoveryDropDown>
-				<!-- php to give options for Recovery_id and enforce foreign key constraints -->
-				<?php
-				if(!($stmt = $mysqli->prepare("SELECT id FROM Recovery"))){
-					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
-				}
-				
-				if(!$stmt->execute()){
-					echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-				}
-				if(!$stmt->bind_result($id)){
-					echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-				}
-				while($stmt->fetch()){
-					echo '<option value=" '. $id . ' "> ' . $id . '</option>\n';
-				}
-				$stmt->close();
-				?>
-			</select>
 			<p><input type="submit" /></p>
 		</fieldset>
 	</form>
