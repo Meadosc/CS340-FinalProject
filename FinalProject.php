@@ -320,18 +320,18 @@ if($mysqli->connect_errno){
 			<select name= patientDropDown>
 				<!-- php to give options for patient_id and enforce foreign key constraints -->
 				<?php
-				if(!($stmt = $mysqli->prepare("SELECT id, Fname FROM Patients"))){
+				if(!($stmt = $mysqli->prepare("SELECT id, Recovery FROM Recovery"))){
 					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 				}
 				
 				if(!$stmt->execute()){
 					echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 				}
-				if(!$stmt->bind_result($id, $Fname)){
+				if(!$stmt->bind_result($id, $Recovery)){
 					echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 				}
 				while($stmt->fetch()){
-					echo '<option value=" '. $id . ' "> ' . $Fname . '</option>\n';
+					echo '<option value=" '. $id . ' "> ' . $Recovery . '</option>\n';
 				}
 				$stmt->close();
 				?>
