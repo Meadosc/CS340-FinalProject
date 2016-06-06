@@ -244,9 +244,27 @@ if($mysqli->connect_errno){
 	<form method="POST" action="FinalProject.html"> <!-- Change the action later-->
 		<fieldset>
 			<legend>Injuries</legend>
-			<p>Structure: <input type="text" name="structure"/></p>
 			<p>Type of Injury: <input type="text" name="Type"/></p>
 			<p>Date: <input type="text" name="date"/></p>
+			<select name= structureDropDown>
+				<!-- php to give options for patient_id and enforce foeriegn key constraints -->
+				<?php
+				if(!($stmt = $mysqli->prepare("SELECT id, Structure FROM Structures"))){
+					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+				}
+				
+				if(!$stmt->execute()){
+					echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+				}
+				if(!$stmt->bind_result($id, $Structure)){
+					echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+				}
+				while($stmt->fetch()){
+					echo '<option value=" '. $id . ' "> ' . $Structure . '</option>\n';
+				}
+				$stmt->close();
+				?>
+			</select>
 			<select name= patientDropDown>
 				<!-- php to give options for patient_id and enforce foeriegn key constraints -->
 				<?php
