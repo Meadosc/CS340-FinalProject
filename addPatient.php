@@ -3,7 +3,7 @@
 ini_set('display_errors', 'On');
 //Connects to the database
 $mysqli = new mysqli("oniddb.cws.oregonstate.edu","meadosc-db","oXUqqY97BfzGwbV7","meadosc-db");
-if(!$mysqli || $msqli->connect_errno){
+if(!$mysqli || $mysqli->connect_errno){
 	echo "Connection error " . $mysqli->connect_errno . " " . $mysqli->connect_error;
 	}
 	
