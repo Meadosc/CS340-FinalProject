@@ -241,7 +241,7 @@ if($mysqli->connect_errno){
 	
 <!-- Form for Injuries -->	
 	<div>
-	<form method="POST" action="FinalProject.html"> <!-- Change the action later-->
+	<form method="POST" action="addInjury.php"> <!-- Change the action later-->
 		<fieldset>
 			<legend>Injuries</legend>
 			<p>Type of Injury: <input type="text" name="Type"/></p>
