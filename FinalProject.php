@@ -214,6 +214,18 @@ if($mysqli->connect_errno){
 	</form>
 	</div>
 	<br>
+
+<!-- Form for Structures -->	
+	<div>
+	<form method="POST" action="addStructure.php"> <!-- Change the action later-->
+		<fieldset>
+			<legend>Structure</legend>
+			<p>Structure: <input type="text" name="Structure"/></p>
+			<p><input type="submit" /></p>
+		</fieldset>
+	</form>
+	</div>
+	<br>
 	
 <!-- Form for Injuries -->	
 	<div>
