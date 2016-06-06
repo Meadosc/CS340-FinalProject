@@ -247,7 +247,7 @@ if($mysqli->connect_errno){
 			<p>Type of Injury: <input type="text" name="Type"/></p>
 			<p>Date: <input type="text" name="date"/></p>
 			<select name= structureDropDown>
-				<!-- php to give options for patient_id and enforce foeriegn key constraints -->
+				<!-- php to give options for Structure_id and enforce foreign key constraints -->
 				<?php
 				if(!($stmt = $mysqli->prepare("SELECT id, Structure FROM Structures"))){
 					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
@@ -266,7 +266,7 @@ if($mysqli->connect_errno){
 				?>
 			</select>
 			<select name= patientDropDown>
-				<!-- php to give options for patient_id and enforce foeriegn key constraints -->
+				<!-- php to give options for patient_id and enforce foreign key constraints -->
 				<?php
 				if(!($stmt = $mysqli->prepare("SELECT id, Fname FROM Patients"))){
 					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
