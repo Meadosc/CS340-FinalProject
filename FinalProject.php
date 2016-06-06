@@ -297,7 +297,7 @@ if($mysqli->connect_errno){
 		<fieldset>
 			<legend>Injuries_Recovery</legend>
 			Injury ID: 
-			<select name= injuryRecoveryDropDown>
+			<select name= injuryDropDown>
 				<!-- php to give options for injury_id and enforce foreign key constraints -->
 				<?php
 				if(!($stmt = $mysqli->prepare("SELECT id FROM Injuries"))){
