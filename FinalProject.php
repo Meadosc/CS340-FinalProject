@@ -298,7 +298,7 @@ if($mysqli->connect_errno){
 			<legend>Injuries_Recovery</legend>
 			Injury ID: 
 			<select name= injuryRecoveryDropDown>
-				<!-- php to give options for Structure_id and enforce foreign key constraints -->
+				<!-- php to give options for injury_id and enforce foreign key constraints -->
 				<?php
 				if(!($stmt = $mysqli->prepare("SELECT id FROM Injuries"))){
 					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
@@ -317,21 +317,21 @@ if($mysqli->connect_errno){
 				?>
 			</select><br>
 			Recovery ID: 
-			<select name= patientDropDown>
-				<!-- php to give options for patient_id and enforce foreign key constraints -->
+			<select name= recoveryDropDown>
+				<!-- php to give options for Recovery_id and enforce foreign key constraints -->
 				<?php
-				if(!($stmt = $mysqli->prepare("SELECT id, Recovery FROM Recovery"))){
+				if(!($stmt = $mysqli->prepare("SELECT id FROM Recovery"))){
 					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 				}
 				
 				if(!$stmt->execute()){
 					echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 				}
-				if(!$stmt->bind_result($id, $Recovery)){
+				if(!$stmt->bind_result($id)){
 					echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 				}
 				while($stmt->fetch()){
-					echo '<option value=" '. $id . ' "> ' . $Recovery . '</option>\n';
+					echo '<option value=" '. $id . ' "> ' . $id . '</option>\n';
 				}
 				$stmt->close();
 				?>
