@@ -289,5 +289,54 @@ if($mysqli->connect_errno){
 	</form>
 	</div>
 	
+<!-- Form for Injuries_Recovery -->	
+	<div>
+	<form method="POST" action="FinalProject.html"> <!-- Change the action later-->
+		<fieldset>
+			<legend>Injuries_Recovery</legend>
+
+			<select name= injuryRecoveryDropDown>
+				<!-- php to give options for Structure_id and enforce foreign key constraints -->
+				<?php
+				if(!($stmt = $mysqli->prepare("SELECT id FROM Injuries"))){
+					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+				}
+				
+				if(!$stmt->execute()){
+					echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+				}
+				if(!$stmt->bind_result($id, $id)){
+					echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+				}
+				while($stmt->fetch()){
+					echo '<option value=" '. $id . ' "> ' . $id . '</option>\n';
+				}
+				$stmt->close();
+				?>
+			</select>
+			<select name= patientDropDown>
+				<!-- php to give options for patient_id and enforce foreign key constraints -->
+				<?php
+				if(!($stmt = $mysqli->prepare("SELECT id, Fname FROM Patients"))){
+					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+				}
+				
+				if(!$stmt->execute()){
+					echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+				}
+				if(!$stmt->bind_result($id, $Fname)){
+					echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+				}
+				while($stmt->fetch()){
+					echo '<option value=" '. $id . ' "> ' . $Fname . '</option>\n';
+				}
+				$stmt->close();
+				?>
+			</select>
+			<p><input type="submit" /></p>
+		</fieldset>
+	</form>
+	</div>
+	
 </body>
 </html>
