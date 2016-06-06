@@ -215,6 +215,37 @@ if($mysqli->connect_errno){
 	</div>
 	<br>
 
+<!-- Form for deleting patients -->	
+	<div>
+	<form method="POST" action="deletePatient.php">
+		<fieldset>
+			<legend>Delete Patient</legend>
+			Patient: 
+			<select name= deleteDropDown>
+				<!-- php to give options for deleting a patient -->
+				<?php
+				if(!($stmt = $mysqli->prepare("SELECT id, Fname FROM Patients"))){
+					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+				}
+				
+				if(!$stmt->execute()){
+					echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+				}
+				if(!$stmt->bind_result($id, $Fname)){
+					echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+				}
+				while($stmt->fetch()){
+					echo '<option value=" '. $id . ' "> ' . $Fname . '</option>\n';
+				}
+				$stmt->close();
+				?>
+			</select>
+			<p><input type="submit" /></p>
+		</fieldset>
+	</form>
+	</div>
+	
+
 <!-- Form for Structures -->	
 	<div>
 	<form method="POST" action="addStructure.php">
