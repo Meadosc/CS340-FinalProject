@@ -19,6 +19,8 @@ if($mysqli->connect_errno){
 	<script src = ""></script>
 </head>
 <body>
+	<h1>Cord Meados' Database for Musculoskeletal Injuries and Recovery</h1>
+	<br>
 	
 <!-- Patients table -->
 	<div>
@@ -49,7 +51,8 @@ if($mysqli->connect_errno){
 	$stmt->close();
 	?>
 	</table>
-
+	<br>
+	
 <!-- injuries table -->	
 	<table>
 		 <tr>
@@ -80,7 +83,8 @@ if($mysqli->connect_errno){
 	$stmt->close();
 	?>
 	</table>
-
+	<br>
+	
 <!-- Structures table -->	
 	<table>
 		 <tr>
@@ -108,6 +112,7 @@ if($mysqli->connect_errno){
 	$stmt->close();
 	?>
 	</table>
+	<br>
 	
 <!-- Recovery table -->	
 	<table>
@@ -136,7 +141,8 @@ if($mysqli->connect_errno){
 	$stmt->close();
 	?>
 	</table>
-
+	<br>
+	
 <!-- Injuries_Recovery table -->	
 	<table>
 		 <tr>
@@ -164,7 +170,8 @@ if($mysqli->connect_errno){
 	$stmt->close();
 	?>
 	</table>
-
+	<br>
+	
 <!-- Injuries_ConnectedStructure table -->	
 	<table>
 		 <tr>
@@ -193,6 +200,7 @@ if($mysqli->connect_errno){
 	?>
 	</table>
 	</div>
+	<br>
 	
 <!-- Form for Patients -->	
 	<div>
@@ -205,7 +213,8 @@ if($mysqli->connect_errno){
 		</fieldset>
 	</form>
 	</div>
-
+	<br>
+	
 <!-- Form for Injuries -->	
 	<div>
 	<form method="POST" action="FinalProject.html"> <!-- Change the action later-->
