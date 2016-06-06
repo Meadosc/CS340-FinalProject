@@ -366,7 +366,7 @@ if($mysqli->connect_errno){
 				$stmt->close();
 				?>
 			</select><br>
-			Connected Structure ID: 
+			Connected Structure: 
 			<select name= structureDropDown>
 				<!-- php to give options for patient_id and enforce foreign key constraints -->
 				<?php
