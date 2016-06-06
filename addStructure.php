@@ -10,7 +10,7 @@ if(!$mysqli || $mysqli->connect_errno){
 if(!($stmt = $mysqli->prepare("INSERT INTO Structures(Structure) VALUES (?)"))){
 	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 }
-if(!($stmt->bind_param("ss",$_POST['Structure']))){
+if(!($stmt->bind_param("s",$_POST['Structure']))){
 	echo "Bind failed: "  . $stmt->errno . " " . $stmt->error;
 }
 if(!$stmt->execute()){
