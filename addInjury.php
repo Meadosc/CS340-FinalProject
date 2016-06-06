@@ -16,6 +16,6 @@ if(!($stmt->bind_param("ssii",$_POST['Type'],$_POST['date'],$_POST['structureDro
 if(!$stmt->execute()){
 	echo "Execute failed: "  . $stmt->errno . " " . $stmt->error;
 } else {
-	echo "Added " . $stmt->affected_rows . " rows to Patients.";
+	echo "Added " . $stmt->affected_rows . " rows.";
 }
 ?>
