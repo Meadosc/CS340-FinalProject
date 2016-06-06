@@ -39,7 +39,7 @@ if(!($stmt = $mysqli->prepare("SELECT id, Fname, Lname FROM Patients "))){
 if(!$stmt->execute()){
 	echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
-if(!$stmt->bind_result($name, $age, $homeworld)){
+if(!$stmt->bind_result($id, $Fname, $Lname)){
 	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
 while($stmt->fetch()){
