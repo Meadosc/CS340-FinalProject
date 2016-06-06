@@ -31,6 +31,22 @@ if($mysqli->connect_errno){
 			<td>Fname</td>
 			<td>Lname</td>
 		</tr>
+<?php
+if(!($stmt = $mysqli->prepare("SELECT id, Fname, Lname FROM Patients "))){
+	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+}
+
+if(!$stmt->execute()){
+	echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+}
+if(!$stmt->bind_result($name, $age, $homeworld)){
+	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+}
+while($stmt->fetch()){
+ echo "<tr>\n<td>\n" . $id . "\n</td>\n<td>\n" . $Fname . "\n</td>\n<td>\n" . $Lname . "\n</td>\n</tr>";
+}
+$stmt->close();
+?>
 	</table>
 
 <!-- injuries table -->	
