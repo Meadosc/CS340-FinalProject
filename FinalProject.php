@@ -246,6 +246,7 @@ if($mysqli->connect_errno){
 			<legend>Injuries</legend>
 			<p>Type of Injury: <input type="text" name="Type"/></p>
 			<p>Date: <input type="text" name="date"/></p>
+			Structure: 
 			<select name= structureDropDown>
 				<!-- php to give options for Structure_id and enforce foreign key constraints -->
 				<?php
@@ -264,7 +265,8 @@ if($mysqli->connect_errno){
 				}
 				$stmt->close();
 				?>
-			</select>
+			</select><br>
+			Patient First Name:
 			<select name= patientDropDown>
 				<!-- php to give options for patient_id and enforce foreign key constraints -->
 				<?php
