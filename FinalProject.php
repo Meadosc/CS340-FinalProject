@@ -343,7 +343,7 @@ if($mysqli->connect_errno){
 	
 <!-- Form for Injuries_ConnectedStructures -->	
 	<div>
-	<form method="POST" action="FinalProject.html"> <!-- Change the action later-->
+	<form method="POST" action="addInjuryConnected.php"> <!-- Change the action later-->
 		<fieldset>
 			<legend>Injuries_ConnectedStructures</legend>
 			Injury ID: 
