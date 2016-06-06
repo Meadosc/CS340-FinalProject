@@ -10,7 +10,7 @@ if(!$mysqli || $mysqli->connect_errno){
 if(!($stmt = $mysqli->prepare("INSERT INTO Injuries(Injury_id, Recovery_id) VALUES (?,?)"))){
 	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 }
-if(!($stmt->bind_param("ii",$_POST['injuryRecoveryDropDown'],$_POST['recoveryDropDown']))){
+if(!($stmt->bind_param("ii",$_POST['injuryDropDown'],$_POST['recoveryDropDown']))){
 	echo "Bind failed: "  . $stmt->errno . " " . $stmt->error;
 }
 if(!$stmt->execute()){
